@@ -6,6 +6,9 @@
 
         <title>{{ config('app.name' )}}</title>
 
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="{{ asset('livestock.png') }}">
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
@@ -30,9 +33,7 @@
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                     <li><a href="{{ url('/') }}">Beranda</a></li>
-                    @auth
-                        <li><a href="{{ route('logout') }}">Keluar</a></li>
-                    @endauth
+                    <li><a href="{{ url('/hewan-qurban') }}">Hewan Qurban</a></li>
                 </ul>
             </div>
             <a href="{{ url('/') }}" class="btn btn-ghost text-xl">
@@ -43,9 +44,7 @@
         <div class="navbar-center hidden md:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="{{ url('/') }}">Beranda</a></li>
-                @auth
-                    <li><a href="{{ route('logout') }}">Keluar</a></li>
-                @endauth
+                <li><a href="{{ url('/hewan-qurban') }}">Hewan Qurban</a></li>
             </ul>
         </div>
         <div class="navbar-end">
@@ -53,7 +52,7 @@
                 <a href="{{ route('login') }}" class="btn btn-primary">Masuk</a>
             @endguest
             @auth
-                <a href="{{ route('dashboard') }}" class="btn btn-primary">Dasbor</a>
+                <a href="{{ url('admin') }}" class="btn btn-primary">Dasbor</a>
             @endauth
         </div>
     </div>
@@ -64,8 +63,7 @@
                 <x-logo />
                 <span class="ml-3 text-xl">{{ config('app.name' )}}</span>
                 </a>
-                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© {{ date('Y') }} {{ config('app.name' )}} —
-                <a href="https://twitter.com/zuhriutama" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@zuhriutama</a>
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© {{ date('Y') }} Copyright by {{ config('app.name' )}}
                 </p>
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
                 <a class="text-gray-500">

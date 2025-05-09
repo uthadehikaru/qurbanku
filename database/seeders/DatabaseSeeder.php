@@ -13,18 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory()->create([
-            'name' => 'Admin',
+        \App\Models\User::firstOrCreate([
             'email' => 'admin@laravel.test',
+        ], [
+            'name' => 'Admin',
             'password' => Hash::make('secret'),
             'role' => 'admin',
         ]);
 
-        \App\Models\User::factory()->create([
-            'name' => 'User',
-            'email' => 'user@laravel.test',
-            'password' => Hash::make('secret'),
-            'role' => 'user',
+        $this->call([
+            AnimalSeeder::class,
         ]);
     }
 }
